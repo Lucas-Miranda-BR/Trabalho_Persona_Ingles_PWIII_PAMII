@@ -1,0 +1,314 @@
+/* =========================
+   NAVBAR
+========================= */
+
+.logo-navbar{
+    width: 28px;
+    height: 28px;
+}
+
+.titulo-navbar{
+    font-size: 14px;
+}
+
+.icon_avatar{
+    width: 28px;
+    height: 28px;
+}
+
+.icon_config{
+    width: 16px;
+    height: 16px;
+}
+
+.nav-link-custom{
+    font-size: 11px;
+}
+
+/* =========================
+   BANNER
+========================= */
+
+.banner{
+    background-color: #23c8c2;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.banner-title{
+    color: white;
+    font-weight: bold;
+    font-size: 10px;
+    white-space: nowrap;
+    margin: 0;
+}
+
+.arduino-img{
+    width: 100%;
+    height: auto;
+    max-width: 120px;
+}
+
+
+/* =========================
+   SM (>=576px)
+========================= */
+
+@media (min-width: 576px){
+
+    .logo-navbar{
+        width: 32px;
+        height: 32px;
+    }
+
+    .titulo-navbar{
+        font-size: 15px;
+    }
+
+    .icon_avatar{
+        width: 32px;
+        height: 32px;
+    }
+
+    .icon_config{
+        width: 18px;
+        height: 18px;
+    }
+
+    .nav-link-custom{
+        font-size: 12px;
+    }
+
+    .banner-title{
+        font-size: 14px;
+    }
+
+    .arduino-img{
+        max-width: 150px;
+    }
+}
+
+
+/* =========================
+   MD (>=768px)
+========================= */
+
+@media (min-width: 768px){
+
+    .logo-navbar{
+        width: 36px;
+        height: 36px;
+    }
+
+    .titulo-navbar{
+        font-size: 17px;
+    }
+
+    .icon_avatar{
+        width: 36px;
+        height: 36px;
+    }
+
+    .icon_config{
+        width: 20px;
+        height: 20px;
+    }
+
+    .nav-link-custom{
+        font-size: 13px;
+    }
+
+    .banner-title{
+        font-size: 20px;
+    }
+
+    .arduino-img{
+        max-width: 200px;
+    }
+}
+
+
+/* =========================
+   LG (>=992px)
+========================= */
+
+@media (min-width: 992px){
+
+    .logo-navbar{
+        width: 40px;
+        height: 40px;
+    }
+
+    .titulo-navbar{
+        font-size: 18px;
+    }
+
+    .icon_avatar{
+        width: 40px;
+        height: 40px;
+    }
+
+    .icon_config{
+        width: 22px;
+        height: 22px;
+    }
+
+    .nav-link-custom{
+        font-size: 14px;
+    }
+
+    .banner-title{
+        font-size: 25px;
+    }
+
+    .arduino-img{
+        max-width: 260px;
+    }
+}
+
+
+/* =========================
+   XL (>=1200px)
+========================= */
+
+@media (min-width: 1200px){
+
+    .logo-navbar{
+        width: 45px;
+        height: 45px;
+    }
+
+    .titulo-navbar{
+        font-size: 20px;
+    }
+
+    .icon_avatar{
+        width: 45px;
+        height: 45px;
+    }
+
+    .icon_config{
+        width: 25px;
+        height: 25px;
+    }
+
+    .nav-link-custom{
+        font-size: 16px;
+    }
+
+    .banner-title{
+        font-size: 30px;
+    }
+
+    .arduino-img{
+        max-width: 320px;
+    }
+}
+
+
+/* =========================
+   XXL (>=1400px)
+========================= */
+
+@media (min-width: 1400px){
+
+    .logo-navbar{
+        width: 50px;
+        height: 50px;
+    }
+
+    .titulo-navbar{
+        font-size: 22px;
+    }
+
+    .icon_avatar{
+        width: 50px;
+        height: 50px;
+    }
+
+    .icon_config{
+        width: 28px;
+        height: 28px;
+    }
+
+    .nav-link-custom{
+        font-size: 18px;
+    }
+
+    .banner-title{
+        font-size: 35px;
+    }
+
+    .arduino-img{
+        max-width: 380px;
+    }
+}
+
+/* =========================
+   PRODUTOS
+========================= */
+
+.produto-card{
+    width: 100%;
+    max-width: 320px;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.produto-card:hover{
+    transform: translateY(-5px);
+}
+
+.produto-img{
+    height: 220px;
+    object-fit: contain;
+    padding: 15px;
+}
+
+.preco{
+    color: #23c8c2;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* =========================
+   TÍTULO PRODUTOS
+========================= */
+
+.titulo-produtos{
+    text-align: center;
+}
+
+.icone-produtos{
+    width: 50px;
+    height: auto;
+}
+
+.texto-produtos{
+    font-weight: bold;
+    color: #23c8c2;
+    font-size: 1.5rem;
+}
+
+@media (min-width: 768px){
+    .icone-produtos{
+        width: 70px;
+    }
+
+    .texto-produtos{
+        font-size: 2rem;
+    }
+}
+
+@media (min-width: 1200px){
+    .icone-produtos{
+        width: 90px;
+    }
+
+    .texto-produtos{
+        font-size: 2.5rem;
+    }
+}

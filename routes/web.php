@@ -13,7 +13,10 @@ use App\Http\Middleware\LogAcessoMiddleware;
 |
 */
 
-Route::get('/', [App\Http\Controllers\Principal::class, 'principal']);
+Route::get('/', [App\Http\Controllers\Principal::class, 'principal'])->name('principal');
+Route::get('/cadastrar', [App\Http\Controllers\Principal::class, 'cadastrar'])->name('cadastrar');
+Route::get('/compra', [App\Http\Controllers\Principal::class, 'compra'])->name('compra');
+Route::get('/login', [App\Http\Controllers\Principal::class, 'login'])->name('login');
 
 
 
