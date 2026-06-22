@@ -17,13 +17,13 @@
         <div class="container-fluid">
 
             <!-- Logo e Nome -->
-            <div class="navbar-brand d-flex align-items-center">
+            <div class="navbar-brand d-flex align-items-center overflow-hidden">
 
                 <img src="{{ asset('imagens/pngtree-circle-technology-abstract-logo-vector-minimalist-png-image_1881155-removebg-preview.png') }}"
                     alt="Logo"
                     class="logo-navbar me-2">
 
-                <span class="titulo-navbar fw-bold">
+                <span class="titulo-navbar fw-bold text-truncate">
                     Solemn's Workshop
                 </span>
 
@@ -31,6 +31,10 @@
 
             <!-- Itens da Direita -->
             <div class="d-flex align-items-center justify-content-center gap-2 ms-auto">
+
+                <a href="{{ route('principal') }}" class="text-decoration-none text-dark nav-link-custom">
+                    Início
+                </a>
 
                 <a href="{{ route('login') }}"
                 class="text-decoration-none text-dark nav-link-custom">
@@ -147,38 +151,48 @@
 
     </div>
 
-    <div class="modal fade" id="compraFinalizada" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-    
-                <div class="modal-header">
-                    <h5 class="modal-title">
-                        Compra Finalizada
-                    </h5>
-    
-                    <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal">
-                    </button>
+            <div class="modal fade" id="compraFinalizada" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content modal-sucesso">
+
+                    <div class="modal-body text-center p-5">
+
+                        <div class="icone-sucesso mx-auto mb-4">
+                            ✓
+                        </div>
+
+                        <h2 class="titulo-sucesso">
+                            Compra finalizada!
+                        </h2>
+
+                        <p class="texto-sucesso mt-4">
+                            Seu pedido foi registrado com sucesso.
+                            Agora basta aguardar a confirmação do pagamento
+                            para iniciarmos a preparação e envio dos produtos.
+                        </p>
+
+                        <p class="texto-sucesso">
+                            Você também pode acompanhar todas as informações
+                            do pedido na área do usuário.
+                        </p>
+
+                        <div class="d-flex flex-column flex-sm-row justify-content-center gap-3 mt-4">
+
+                            <a href="{{ route('usuario') }}"
+                            class="btn btn-acompanhar">
+                                Ver Pedido
+                            </a>
+
+                            <a href="{{ route('principal') }}"
+                            class="btn btn-loja">
+                                Voltar à Loja
+                            </a>
+
+                        </div>
+
+                    </div>
+
                 </div>
-    
-                <div class="modal-body text-center">
-                    <h2>✅</h2>
-                    <p>
-                        Sua compra foi finalizada com sucesso!
-                    </p>
-                    <p>
-                        Obrigado por comprar na TechnoBlog.
-                    </p>
-                </div>
-    
-                <div class="modal-footer">
-                    <a href="{{ route('principal') }}" class="btn btn-info text-white">
-                        Fechar
-                    </a>
-                </div>
-    
             </div>
         </div>
     </div>

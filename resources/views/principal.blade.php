@@ -111,7 +111,7 @@
                                 Ideal para projetos eletrônicos e automação.
                             </p>
                             <h4 class="preco">R$ 89,90</h4>
-                            <a href="compra.html" class="btn btn-info text-white">
+                            <a href="{{ route('compra') }}" class="btn btn-info text-white">
                                 Comprar
                             </a>
                         </div>
@@ -128,7 +128,7 @@
                                 Mais portas e recursos para projetos avançados.
                             </p>
                             <h4 class="preco">R$ 149,90</h4>
-                            <a href="compra.html" class="btn btn-info text-white">
+                            <a href="{{ route('compra') }}" class="btn btn-info text-white">
                                 Comprar
                             </a>
                         </div>
@@ -145,7 +145,7 @@
                                 Microcontrolador com Wi-Fi e Bluetooth integrado.
                             </p>
                             <h4 class="preco">R$ 59,90</h4>
-                            <a href="compra.html" class="btn btn-info text-white">
+                            <a href="{{ route('compra') }}" class="btn btn-info text-white">
                                 Comprar
                             </a>
                         </div>
@@ -162,7 +162,7 @@
                                 Medição de distância para robótica e automação.
                             </p>
                             <h4 class="preco">R$ 24,90</h4>
-                            <a href="compra.html" class="btn btn-info text-white">
+                            <a href="{{ route('compra') }}" class="btn btn-info text-white">
                                 Comprar
                             </a>
                         </div>
@@ -179,7 +179,7 @@
                                 Exiba informações nos seus projetos.
                             </p>
                             <h4 class="preco">R$ 19,90</h4>
-                            <a href="compra.html" class="btn btn-info text-white">
+                            <a href="{{ route('compra') }}" class="btn btn-info text-white">
                                 Comprar
                             </a>
                         </div>
@@ -196,7 +196,7 @@
                                 Componentes essenciais para começar.
                             </p>
                             <h4 class="preco">R$ 199,90</h4>
-                            <a href="compra.html" class="btn btn-info text-white">
+                            <a href="{{ route('compra') }}" class="btn btn-info text-white">
                                 Comprar
                             </a>
                         </div>

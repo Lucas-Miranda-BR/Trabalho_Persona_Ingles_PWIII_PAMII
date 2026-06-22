@@ -1,55 +1,51 @@
+/* =========================
+   GERAL
+========================= */
+
 body{
-    background-color: #f8f9fa;
-}
-
-.produto-compra{
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,.1);
-    background: white;
-    padding: 25px;
-}
-
-.produto-img{
-    max-width: 250px;
-    width: 100%;
-}
-
-.preco{
-    color: #23c8c2;
-    font-weight: bold;
-}
-
-.resumo{
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,.1);
-    background: white;
-    padding: 25px;
+    background-color: #f4f6f9;
+    min-height: 100vh;
 }
 
 /* =========================
    NAVBAR
 ========================= */
 
+.navbar .container-fluid{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+.navbar-brand{
+    min-width: 0;
+    flex: 1;
+}
+
+.titulo-navbar{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ms-auto{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: nowrap;
+}
+
+.nav-link-custom{
+    white-space: nowrap;
+}
+
+
 .logo-navbar{
     width: 28px;
     height: 28px;
 }
 
-.navbar .container-fluid{
-    flex-wrap: nowrap;
-}
-
-.navbar-brand{
-    flex-shrink: 0;
-}
-
-.ms-auto{
-    flex-shrink: 0;
-}
-
-.titulo-navbar{
-    font-size: 12px;
-}
 
 .icon_avatar{
     width: 28px;
@@ -61,40 +57,142 @@ body{
     height: 16px;
 }
 
-.nav-link-custom{
-    font-size: 11px;
+/* =========================
+   CONTEÚDO COMPRA
+========================= */
+
+.produto-compra,
+.resumo{
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0,0,0,.08);
+}
+
+.produto-compra h2{
+    color: #23c8c2;
+    font-weight: 700;
+}
+
+.preco{
+    color: #23c8c2;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.resumo h4{
+    color: #23c8c2;
+    font-weight: 700;
+}
+
+.form-control{
+    border-radius: 10px;
+}
+
+.btn-info{
+    background-color: #23c8c2;
+    border: none;
+}
+
+.btn-info:hover{
+    background-color: #1ba7a2;
+}
+
+/* =========================
+   MODAL SUCESSO
+========================= */
+
+.modal-sucesso{
+    border: none;
+    border-left: 5px solid #23c8c2;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0,0,0,.15);
+}
+
+.icone-sucesso{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #48c78e;
+    color: #fff;
+    font-size: 60px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo-sucesso{
+    color: #23c8c2;
+    font-weight: bold;
+}
+
+.texto-sucesso{
+    max-width: 550px;
+    margin: auto;
+    line-height: 1.8;
+    color: #444;
+}
+
+.btn-acompanhar{
+    background: #23c8c2;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 10px 25px;
+}
+
+.btn-acompanhar:hover{
+    background: #1ba7a2;
+    color: #fff;
+}
+
+.btn-loja{
+    border: 1px solid #23c8c2;
+    color: #23c8c2;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 10px 25px;
+}
+
+.btn-loja:hover{
+    background: #23c8c2;
+    color: #fff;
 }
 
 /* =========================
    SM (>=576px)
 ========================= */
 
-@media (min-width: 576px){
+@media (max-width: 575px){
 
     .logo-navbar{
-        width: 32px;
-        height: 32px;
+        width: 22px;
+        height: 22px;
     }
 
     .titulo-navbar{
-        font-size: 12px;
-    }
-
-    .icon_avatar{
-        width: 32px;
-        height: 32px;
-    }
-
-    .icon_config{
-        width: 18px;
-        height: 18px;
+        font-size: 10px;
+        max-width: 90px;
     }
 
     .nav-link-custom{
-        font-size: 12px;
+        font-size: 10px;
     }
 
+    .icon_avatar{
+        width: 20px;
+        height: 20px;
+    }
+
+    .icon_config{
+        width: 14px;
+        height: 14px;
+    }
 }
+
 
 
 /* =========================
@@ -125,7 +223,6 @@ body{
     .nav-link-custom{
         font-size: 13px;
     }
-
 }
 
 
@@ -157,9 +254,7 @@ body{
     .nav-link-custom{
         font-size: 14px;
     }
-
 }
-
 
 /* =========================
    XL (>=1200px)
@@ -189,7 +284,6 @@ body{
     .nav-link-custom{
         font-size: 16px;
     }
-
 }
 
 
@@ -221,8 +315,6 @@ body{
     .nav-link-custom{
         font-size: 18px;
     }
-
-
 }
 
 /* =========================
