@@ -72,19 +72,18 @@
 
                 <div class="produto-compra">
 
-                    <h2 class="mb-4">Arduino Uno R3</h2>
+                    <h2 class="mb-4">{{$produto->nome}}</h2>
 
                     <div class="row align-items-center">
 
                         <div class="col-md-7">
 
                             <p>
-                                Arduino Uno R3 original para projetos de
-                                automação, robótica e eletrônica.
+                                {{$produto->descricao}}
                             </p>
 
                             <h3 class="preco">
-                                R$ 89,90
+                            R$ {{ number_format($produto->valor, 2, ',', '.') }}
                             </h3>
 
                             <label class="form-label mt-3">
@@ -94,7 +93,7 @@
                             <input
                                 type="number"
                                 class="form-control"
-                                value="1"
+                                value="{{$produto->quantidade}}"
                                 min="1">
 
                         </div>
@@ -116,20 +115,20 @@
                     <hr>
 
                     <div class="d-flex justify-content-between">
-                        <span>Produto</span>
-                        <span>R$ 89,90</span>
+                        <span>Valor</span>
+                        <span>R$ {{ number_format($produto->valor, 2, ',', '.') }}</span>
                     </div>
 
                     <div class="d-flex justify-content-between mt-2">
-                        <span>Frete</span>
-                        <span>Grátis</span>
+                        <span>Quantidade</span>
+                        <span>{{$produto->quantidade}}</span>
                     </div>
 
                     <hr>
 
                     <div class="d-flex justify-content-between fw-bold">
                         <span>Total</span>
-                        <span>R$ 89,90</span>
+                        <span>R$ {{ number_format($total, 2, ',', '.') }}</span>
                     </div>
 
                     <button

@@ -31,17 +31,35 @@
 
         </div>
 
-        <form>
+        <form action="{{route('usuario.create')}}" method="post" >
 
             <div class="mb-3">
                 <label class="form-label">
-                    Nome Completo
+                    Nome
                 </label>
 
                 <input
                     type="text"
                     class="form-control input-auth"
-                    placeholder="Digite seu nome">
+                    placeholder="Digite seu nome"
+                    name="nome"
+                    id="nome"
+                    value="{{ old('nome') }}"
+                    >
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">
+                    Sobrenome
+                </label>
+
+                <input
+                    type="text"
+                    class="form-control input-auth"
+                    placeholder="Digite seu sobrenome"
+                    name="sobrenome"
+                    id="sobrenome"
+                    value="{{ old('sobrenome') }}">
             </div>
 
             <div class="mb-3">
@@ -52,7 +70,10 @@
                 <input
                     type="email"
                     class="form-control input-auth"
-                    placeholder="Digite seu e-mail">
+                    placeholder="Digite seu e-mail"
+                    name="email"
+                    id="email"
+                    value="{{ old('email') }}">
             </div>
 
             <div class="mb-4">
@@ -63,7 +84,10 @@
                 <input
                     type="password"
                     class="form-control input-auth"
-                    placeholder="Crie uma senha">
+                    placeholder="Crie uma senha"
+                    name="senha"
+                    id="senha"
+                    value="{{ old('senha') }}">
             </div>
 
             <button class="btn btn-auth w-100">

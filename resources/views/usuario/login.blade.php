@@ -31,7 +31,7 @@
 
         </div>
 
-        <form>
+        <form method="post" action="">
 
             <div class="mb-3">
                 <label class="form-label">
@@ -41,7 +41,11 @@
                 <input
                     type="email"
                     class="form-control input-auth"
-                    placeholder="Digite seu e-mail">
+                    placeholder="Digite seu e-mail"
+                    for="email"
+                    id="email"
+                    value="{{ old('email') }}"
+                    >
             </div>
 
             <div class="mb-4">
@@ -52,7 +56,10 @@
                 <input
                     type="password"
                     class="form-control input-auth"
-                    placeholder="Digite sua senha">
+                    placeholder="Digite sua senha"
+                    for="senha"
+                    id="senha"
+                    value="{{ old('senha') }}">
             </div>
 
             <button class="btn btn-auth w-100">
