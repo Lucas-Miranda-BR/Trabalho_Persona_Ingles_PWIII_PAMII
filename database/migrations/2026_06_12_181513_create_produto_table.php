@@ -16,11 +16,9 @@ return new class extends Migration
             $table->timestamp('criado')->useCurrent();
             $table->timestamp('atualizado')->useCurrent()->useCurrentOnUpdate();
             $table->string('nome');
+            $table->integer('estoque')->default(0);
+            $table->string('status');
             $table->decimal('valor', total: 8, places: 2);
-            $table->integer('estoque');
-            $table->unsignedBigInteger('categoria_id');
-
-            $table->foreign('categoria_id')->references('categoria_id')->on('categoria');
         });
     }
 

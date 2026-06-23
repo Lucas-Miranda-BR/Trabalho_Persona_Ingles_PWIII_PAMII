@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Pedido extends Model
 {
     use HasFactory;
+    public $timestamps = false;
     protected $table = 'pedido';
     protected $primaryKey = 'pedido_id';
     protected $fillable = [

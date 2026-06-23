@@ -31,26 +31,14 @@
             <!-- Itens da Direita -->
             <div class="d-flex align-items-center justify-content-center gap-2 ms-auto">
 
-                <a href="{{ route('login') }}"
+                <a href="{{ route('usuario.login') }}"
                 class="text-decoration-none text-dark nav-link-custom">
                     Login
                 </a>
 
-                <a href="{{ route('cadastrar') }}"
+                <a href="{{ route('usuario.cadastrar') }}"
                 class="text-decoration-none text-dark nav-link-custom">
                     Sign Up
-                </a>
-
-                <a href="{{ route('usuario') }}">
-                    <img src="{{ asset('imagens/ícone de conta/pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_1978396-removebg-preview.png') }}"
-                        alt="Perfil"
-                        class="icon_avatar">
-                </a>
-
-                <a href="{{ route('config') }}">
-                    <img src="{{ asset('imagens/engrenagem-removebg-preview.png') }}"
-                        alt="Configurações"
-                        class="icon_config">
                 </a>
 
             </div>
@@ -97,112 +85,27 @@
 
     <!-- produtos -->
 
-
+    @isset($produtos)
+    @foreach($produtos as $produto)
         <div class="container py-5">
             <div class="row justify-content-center g-4">
-
-                <!-- Produto 1 -->
                 <div class="col-12 col-sm-6 col-lg-4 d-flex justify-content-center">
                     <div class="card produto-card">
 
                         <div class="card-body text-center">
-                            <h5 class="card-title">Arduino Uno R3</h5>
+                            <h5 class="card-title">{{$produto->nome}}</h5>
                             <p class="card-text">
-                                Ideal para projetos eletrônicos e automação.
+                                {{$produto->descricao}}
                             </p>
-                            <h4 class="preco">R$ 89,90</h4>
-                            <a href="{{ route('compra') }}" class="btn btn-info text-white">
-                                Comprar
-                            </a>
+                            <h4 class="preco">R$ {{$produto->valor}}</h4>
+                            <form action="{{ route('produto.compra', ['id' => $produto->id]) }}" method="GET">
+                                <button class="btn btn-info text-white" type="submit">Compra</button>
+                            </form>
                         </div>
                     </div>
                 </div>
-
-                <!-- Produto 2 -->
-                <div class="col-12 col-sm-6 col-lg-4 d-flex justify-content-center">
-                    <div class="card produto-card">
-
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Arduino Mega 2560</h5>
-                            <p class="card-text">
-                                Mais portas e recursos para projetos avançados.
-                            </p>
-                            <h4 class="preco">R$ 149,90</h4>
-                            <a href="{{ route('compra') }}" class="btn btn-info text-white">
-                                Comprar
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Produto 3 -->
-                <div class="col-12 col-sm-6 col-lg-4 d-flex justify-content-center">
-                    <div class="card produto-card">
-
-                        <div class="card-body text-center">
-                            <h5 class="card-title">ESP32 Wi-Fi</h5>
-                            <p class="card-text">
-                                Microcontrolador com Wi-Fi e Bluetooth integrado.
-                            </p>
-                            <h4 class="preco">R$ 59,90</h4>
-                            <a href="{{ route('compra') }}" class="btn btn-info text-white">
-                                Comprar
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Produto 4 -->
-                <div class="col-12 col-sm-6 col-lg-4 d-flex justify-content-center">
-                    <div class="card produto-card">
-
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Sensor Ultrassônico</h5>
-                            <p class="card-text">
-                                Medição de distância para robótica e automação.
-                            </p>
-                            <h4 class="preco">R$ 24,90</h4>
-                            <a href="{{ route('compra') }}" class="btn btn-info text-white">
-                                Comprar
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Produto 5 -->
-                <div class="col-12 col-sm-6 col-lg-4 d-flex justify-content-center">
-                    <div class="card produto-card">
-
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Display LCD 16x2</h5>
-                            <p class="card-text">
-                                Exiba informações nos seus projetos.
-                            </p>
-                            <h4 class="preco">R$ 19,90</h4>
-                            <a href="{{ route('compra') }}" class="btn btn-info text-white">
-                                Comprar
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Produto 6 -->
-                <div class="col-12 col-sm-6 col-lg-4 d-flex justify-content-center">
-                    <div class="card produto-card">
-
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Kit Arduino Iniciante</h5>
-                            <p class="card-text">
-                                Componentes essenciais para começar.
-                            </p>
-                            <h4 class="preco">R$ 199,90</h4>
-                            <a href="{{ route('compra') }}" class="btn btn-info text-white">
-                                Comprar
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
+    @endforeach
+    @endisset
             </div>
         </div>
 

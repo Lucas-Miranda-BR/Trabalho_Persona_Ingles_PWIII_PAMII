@@ -16,13 +16,9 @@ return new class extends Migration
             $table->timestamp('criado')->useCurrent();
             $table->timestamp('atualizado')->useCurrent()->useCurrentOnUpdate();
             $table->string('nome');
+            $table->string('sobrenome');
             $table->string('senha');
             $table->boolean('admin')->default(false);
-            $table->unsignedBigInteger('estado_id');
-            $table->unsignedBigInteger('cidade_id');
-
-            $table->foreign('estado_id')->references('estado_id')->on('estado')->restrictOnDelete();
-            $table->foreign('cidade_id')->references('cidade_id')->on('cidade')->restrictOnDelete();
         });
     }
 

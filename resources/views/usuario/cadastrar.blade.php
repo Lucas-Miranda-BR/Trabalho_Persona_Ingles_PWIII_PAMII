@@ -31,17 +31,37 @@
 
         </div>
 
-        <form>
+        <form action="{{route('usuario.create')}}" method="post">
+
+        @csrf
 
             <div class="mb-3">
                 <label class="form-label">
-                    Nome Completo
+                    Nome
                 </label>
 
                 <input
                     type="text"
                     class="form-control input-auth"
-                    placeholder="Digite seu nome">
+                    placeholder="Digite seu nome"
+                    name="nome"
+                    id="nome"
+                    value="{{ old('nome') }}"
+                    >
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">
+                    Sobrenome
+                </label>
+
+                <input
+                    type="text"
+                    class="form-control input-auth"
+                    placeholder="Digite seu sobrenome"
+                    name="sobrenome"
+                    id="sobrenome"
+                    value="{{ old('sobrenome') }}">
             </div>
 
             <div class="mb-3">
@@ -52,7 +72,10 @@
                 <input
                     type="email"
                     class="form-control input-auth"
-                    placeholder="Digite seu e-mail">
+                    placeholder="Digite seu e-mail"
+                    name="email"
+                    id="email"
+                    value="{{ old('email') }}">
             </div>
 
             <div class="mb-4">
@@ -63,7 +86,10 @@
                 <input
                     type="password"
                     class="form-control input-auth"
-                    placeholder="Crie uma senha">
+                    placeholder="Crie uma senha"
+                    name="senha"
+                    id="senha"
+                    value="{{ old('senha') }}">
             </div>
 
             <button class="btn btn-auth w-100">
@@ -75,13 +101,19 @@
         <div class="text-center mt-4">
             Já possui conta?
 
-            <a href="{{ route('login') }}" class="link-auth">
+            <a href="{{ route('usuario.login') }}" class="link-auth">
                 Entrar
             </a>
         </div>
+                @if($errors->any())
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        @endif
 
     </div>
-
 </div>
 
 </body>
