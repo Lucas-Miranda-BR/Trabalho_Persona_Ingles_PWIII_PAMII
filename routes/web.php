@@ -15,7 +15,7 @@ use App\Http\Middleware\LogAcessoMiddleware;
 
 // PUBLICO
 
-Route::get('/principal', [App\Http\Controllers\Principal::class, 'principal'])->name('principal');
+Route::get('/', [App\Http\Controllers\Principal::class, 'principal'])->name('principal');
 
 Route::prefix('/usuario')->group(function(){
     Route::get('/cadastrar', [App\Http\Controllers\Usuario::class, 'indexUsuario'])->name('usuario.cadastrar');

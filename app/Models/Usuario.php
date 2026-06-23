@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Usuario extends Model
 {
     use HasFactory;
+    public $timestamps = false;
     protected $table = 'usuario';
     protected $primaryKey = 'usuario_id';
     protected $fillable = [

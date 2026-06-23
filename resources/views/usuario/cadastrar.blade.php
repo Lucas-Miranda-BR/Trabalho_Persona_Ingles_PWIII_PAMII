@@ -31,7 +31,9 @@
 
         </div>
 
-        <form action="{{route('usuario.create')}}" method="post" >
+        <form action="{{route('usuario.create')}}" method="post">
+
+        @csrf
 
             <div class="mb-3">
                 <label class="form-label">
@@ -99,13 +101,10 @@
         <div class="text-center mt-4">
             Já possui conta?
 
-            <a href="{{ route('login') }}" class="link-auth">
+            <a href="{{ route('usuario.login') }}" class="link-auth">
                 Entrar
             </a>
         </div>
-        @isset($success)
-            return redirect()->route('principal')
-        @endisset
                 @if($errors->any())
                             <ul>
                                 @foreach($errors->all() as $error)

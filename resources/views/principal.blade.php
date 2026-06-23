@@ -31,26 +31,14 @@
             <!-- Itens da Direita -->
             <div class="d-flex align-items-center justify-content-center gap-2 ms-auto">
 
-                <a href="{{ route('login') }}"
+                <a href="{{ route('usuario.login') }}"
                 class="text-decoration-none text-dark nav-link-custom">
                     Login
                 </a>
 
-                <a href="{{ route('cadastrar') }}"
+                <a href="{{ route('usuario.cadastrar') }}"
                 class="text-decoration-none text-dark nav-link-custom">
                     Sign Up
-                </a>
-
-                <a href="{{ route('usuario') }}">
-                    <img src="{{ asset('imagens/ícone de conta/pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_1978396-removebg-preview.png') }}"
-                        alt="Perfil"
-                        class="icon_avatar">
-                </a>
-
-                <a href="{{ route('config') }}">
-                    <img src="{{ asset('imagens/engrenagem-removebg-preview.png') }}"
-                        alt="Configurações"
-                        class="icon_config">
                 </a>
 
             </div>

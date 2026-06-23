@@ -31,7 +31,7 @@
 
         </div>
 
-        <form method="post" action="">
+        <form method="get" action="../">
 
             <div class="mb-3">
                 <label class="form-label">
@@ -71,7 +71,7 @@
         <div class="text-center mt-4">
             Não possui conta?
 
-            <a href="{{ route('cadastrar') }}" class="link-auth">
+            <a href="{{ route('usuario.cadastrar') }}" class="link-auth">
                 Cadastre-se
             </a>
         </div>

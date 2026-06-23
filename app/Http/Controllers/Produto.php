@@ -117,7 +117,7 @@ function readProduto(){
                   ->withInput();
           }
           $produto = new \App\Models\Produto();
-            $produto::create($dados->all());
+            $produto::update($dados->all());
     
             $produtos = new \App\Models\Produto();
     
