@@ -40,9 +40,9 @@ class Principal extends Controller
 
     public function dashboard()
     {
-        if (!session('admin')) {
-            abort(403);
-        }
+        // if (!session('admin')) {
+        //     abort(403);
+        // }
 
         return view('admin.dashboard');
     }
