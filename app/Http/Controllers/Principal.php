@@ -12,8 +12,7 @@ class Principal extends Controller
         return view('principal');
     }
 
-    public function erro404()
-    {
-        return view('erro.404');
+    public function dashboardAdmin(){
+        return view('dashboard.dashboard');
     }
 }

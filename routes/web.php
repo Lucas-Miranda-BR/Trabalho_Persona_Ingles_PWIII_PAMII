@@ -60,6 +60,9 @@ Route::prefix('/produto')->group(function(){
 
 // ADMIN
 
+Route::get('/dashboard', [App\Http\Controllers\Principal::class, 'dashboardAdmin'])->name('dashboard.dashboard');
+
+
 Route::prefix('/dashboard/produto')->group(function(){
     Route::get('/index', [App\Http\Controllers\Produto::class, 'indexProduto'])->name('produto.index');
     Route::post('/create', [App\Http\Controllers\Produto::class, 'createProduto'])->name('produto.create');
@@ -76,5 +79,6 @@ Route::prefix('/dashboard/usuario')->group(function(){
 });
 
 Route::fallback(function () {
-    return view('erro_fallback.404');
+    echo "Error 404 - Not Found - Rota acessada não existe <br>";
+    echo "<a href='". route('principal') ."'>Voltar</a>";
 });

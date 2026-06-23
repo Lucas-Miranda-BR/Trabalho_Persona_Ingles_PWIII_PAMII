@@ -52,6 +52,17 @@ class Usuario extends Controller{
         return view('principal');
     }
     
+    
+    function loginUsuario(){
+        return view('usuario.login');
+    }
+    
+    public function logout(){        
+        return view('usuario.login');
+    }
+    
+    // ADMIN
+
     function updateUsuario(string $id){
         $usuario = Usuario::findOrFail($id);
 
@@ -93,19 +104,7 @@ class Usuario extends Controller{
             
                 return view('usuario.update', ['success'=>'Atualizado!', 'usuarios'=>$usuario::all()]);
                 }
-            }
-
-            function loginUsuario(){
-                return view('usuario.login');
-            }
-
-            public function logout(){
-                session()->flush();
-                
-                return redirect()->route('principal');
-            }
-
-    // ADMIN
+    }
 
     function readUsuario(){
         $usuario = new \App\Models\Usuario();
@@ -113,12 +112,11 @@ class Usuario extends Controller{
         return view('usuario.read', ['usuarios'=>$usuario::all()]);
     }
 
-
     function deleteUsuario(string $id) {
             $usuario = Usuario::findOrFail($id);
             $usuario::destroy($id);
     
             return view('usuario.index', ['success'=>'Removido!', 'usuarios'=>$usuario::all()]);
-        }
+    }
 }
 
