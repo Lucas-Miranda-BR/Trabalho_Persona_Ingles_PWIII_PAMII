@@ -103,9 +103,18 @@
                 Entrar
             </a>
         </div>
+        @isset($success)
+            return redirect()->route('principal')
+        @endisset
+                @if($errors->any())
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        @endif
 
     </div>
-
 </div>
 
 </body>

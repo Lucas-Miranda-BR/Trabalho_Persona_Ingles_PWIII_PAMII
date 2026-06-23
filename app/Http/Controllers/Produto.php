@@ -112,7 +112,7 @@ function readProduto(){
     
           if ($validator->fails()) {
               return redirect()
-                  ->route('dashboard.produto.index')
+                  ->route('dashboard.produto.update')
                   ->withErrors($validator)
                   ->withInput();
           }

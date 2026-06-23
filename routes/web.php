@@ -21,6 +21,7 @@ Route::prefix('/usuario')->group(function(){
     Route::get('/cadastrar', [App\Http\Controllers\Usuario::class, 'indexUsuario'])->name('usuario.cadastrar');
     Route::post('/create', [App\Http\Controllers\Usuario::class, 'createUsuario'])->name('usuario.create');
     Route::get('/login', [App\Http\Controllers\Usuario::class, 'loginUsuario'])->name('usuario.login');
+    Route::get('/update/{id}', [App\Http\Controllers\Usuario::class, 'updateUsuario'])->name('usuario.update');
 });
 Route::prefix('/produto')->group(function(){
     Route::get('/compra/{id}', [App\Http\Controllers\Produto::class, 'readIdProduto'])->name('produto.compra-id');
@@ -39,7 +40,6 @@ Route::prefix('/dashboard/produto')->group(function(){
 
 Route::prefix('/dashboard/usuario')->group(function(){
     Route::get('/read', [App\Http\Controllers\Usuario::class, 'readUsuario'])->name('usuario.read');
-    Route::get('/update/{id}', [App\Http\Controllers\Usuario::class, 'updateUsuario'])->name('usuario.update');
     Route::get('/delete/{id}', [App\Http\Controllers\Usuario::class, 'deleteUsuario'])->name('usuario.delete');
     Route::post('/save', [App\Http\Controllers\Usuario::class, 'saveUsuario'])->name('usuario.save');
 });
