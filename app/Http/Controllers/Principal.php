@@ -11,13 +11,6 @@ class Principal extends Controller
     {
         return view('principal');
     }
-    
-    public function logout()
-    {
-        session()->flush();
-
-        return redirect()->route('principal');
-    }
 
     public function erro404()
     {
