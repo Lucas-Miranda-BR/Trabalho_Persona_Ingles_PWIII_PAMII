@@ -22,6 +22,7 @@ Route::prefix('/usuario')->group(function(){
     Route::get('/cadastrar', [App\Http\Controllers\Usuario::class, 'indexUsuario'])->name('usuario.cadastrar');
     Route::post('/create', [App\Http\Controllers\Usuario::class, 'createUsuario'])->name('usuario.create');
     Route::get('/login', [App\Http\Controllers\Usuario::class, 'loginUsuario'])->name('usuario.login');
+    Route::get('/logout', [App\Http\Controllers\Usuario::class, 'logoutUsuario'])->name('usuario.logout');
     Route::get('/update/{id}', [App\Http\Controllers\Usuario::class, 'updateUsuario'])->name('usuario.update');
 });
 Route::prefix('/produto')->group(function(){
