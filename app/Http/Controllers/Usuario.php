@@ -99,6 +99,12 @@ class Usuario extends Controller{
                 return view('usuario.login');
             }
 
+            public function logout(){
+                session()->flush();
+                
+                return redirect()->route('principal');
+            }
+
     // ADMIN
 
     function readUsuario(){
