@@ -34,7 +34,7 @@
                 Ver Loja
             </a>
 
-            <a href="{{ route('logout') }}"
+            <a href="{{ route('usuario.logout') }}"
                class="btn btn-outline-danger btn-navbar">
                 Sair
             </a>
@@ -61,8 +61,6 @@
     </div>
 
     <!-- BOTÕES DE ACESSO -->
-
-<!-- MODAL EDITAR USUÁRIO -->
 
 </div>
 

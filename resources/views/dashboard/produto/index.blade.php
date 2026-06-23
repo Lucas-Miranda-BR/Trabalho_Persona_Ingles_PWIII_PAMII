@@ -34,7 +34,7 @@
                 Ver Loja
             </a>
 
-            <a href="{{ route('logout') }}"
+            <a href="{{ route('usuario.logout') }}"
                class="btn btn-outline-danger btn-navbar">
                 Sair
             </a>
@@ -65,7 +65,7 @@
 
         <div class="card-body">
 
-            <form action="{{route('produto.create')}}" method="post">
+            <form action="{{route('dashboard.produto.create')}}" method="post">
 
             @csrf
 
@@ -80,11 +80,11 @@
                     </div>
 
                     <div class="col-md-3 mb-3">
-                        <label class="form-label" for="preco">
+                        <label class="form-label" for="valor">
                             Preço
                         </label>
 
-                        <input type="number" step="0.01" class="form-control" name="preco" id="preco" value="{{ old('preco') }}">
+                        <input type="number" step="0.01" class="form-control" name="valor" id="valor" value="{{ old('valor') }}">
                     </div>
 
                     <div class="col-md-3 mb-3">
@@ -114,6 +114,12 @@
         </div>
     </div>
 
+    @isset($success)
+                            <div class="mb-3">
+                            <p>{{$success}}</p>
+                            </div>
+                        @endisset
+
     @if($errors->any())
                             <ul>
                                 @foreach($errors->all() as $error)
@@ -121,3 +127,5 @@
                                 @endforeach
                             </ul>
                         @endif
+</body>
+</html>

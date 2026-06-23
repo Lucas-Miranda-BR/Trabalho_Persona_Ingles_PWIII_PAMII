@@ -15,4 +15,9 @@ class Principal extends Controller
     public function dashboardAdmin(){
         return view('dashboard.dashboard');
     }
+
+    public function erro404()
+    {
+        return view('fallback.error_404');
+    }
 }

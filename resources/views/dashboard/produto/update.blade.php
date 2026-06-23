@@ -1,3 +1,49 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard Admin - Solemn's Workshop</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+</head>
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar bg-white shadow-sm border-bottom">
+    <div class="container-fluid navbar-custom">
+
+        <div class="navbar-brand d-flex align-items-center m-0">
+
+            <img src="{{ asset('imagens/pngtree-circle-technology-abstract-logo-vector-minimalist-png-image_1881155-removebg-preview.png') }}"
+                 alt="Logo"
+                 class="logo-navbar me-2">
+
+            <span class="fw-bold titulo-navbar">
+                Solemn's Workshop
+            </span>
+
+        </div>
+
+        <div class="d-flex align-items-center gap-2">
+
+            <a href="{{ route('principal') }}"
+               class="btn btn-info text-white btn-navbar">
+                Ver Loja
+            </a>
+
+            <a href="{{ route('usuario.logout') }}"
+               class="btn btn-outline-danger btn-navbar">
+                Sair
+            </a>
+
+        </div>
+
+    </div>
+</nav>
+
 <div class="modal fade" id="editarProduto" tabindex="-1">
     <div class="modal-dialog modal-lg modal-dialog-centered">
 
@@ -17,14 +63,14 @@
 
             <div class="modal-body">
 
-                <form>
+                <form action="dashboard.produto.save" method="post">
 
                     @csrf
 
                     <input type="hidden" name="id" value="{{ $produto->id }}">
 
                     <div class="mb-3">
-                        <label class="form-label">
+                        <label class="form-label" for="nome">
                             Nome
                         </label>
                         <input type="text" class="form-control" name="nome" id="nome" value="{{ $produto->nome }}">
@@ -34,17 +80,17 @@
 
                         <div class="col-md-6 mb-3">
 
-                            <label class="form-label">
+                            <label class="form-label" for="valor">
                                 Preço
                             </label>
 
-                            <input type="number" class="form-control" name="preco" id="preco" value="{{ $produto->preco }}">
+                            <input type="number" class="form-control" name="valor" id="valor" value="{{ $produto->valor }}">
 
                         </div>
 
                         <div class="col-md-6 mb-3">
 
-                            <label class="form-label">
+                            <label class="form-label" for="estoque">
                                 Estoque
                             </label>
 
@@ -56,7 +102,7 @@
 
                     <div class="mb-3">
 
-                        <label class="form-label">
+                        <label class="form-label" for="descricao">
                             Descrição
                         </label>
 
@@ -89,6 +135,12 @@
     </div>
 </div>
 
+@isset($success)
+                            <div class="mb-3">
+                            <p>{{$success}}</p>
+                            </div>
+                        @endisset
+
 @if($errors->any())
                             <ul>
                                 @foreach($errors->all() as $error)
@@ -96,3 +148,5 @@
                                 @endforeach
                             </ul>
                         @endif
+</body>
+</html>

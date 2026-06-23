@@ -17,7 +17,8 @@ return new class extends Migration
             $table->timestamp('atualizado')->useCurrent()->useCurrentOnUpdate();
             $table->string('nome');
             $table->integer('estoque')->default(0);
-            $table->string('status');
+            $table->string('status')->default('Não disponível');
+            $table->string('descricao');
             $table->decimal('valor', total: 8, places: 2);
         });
     }

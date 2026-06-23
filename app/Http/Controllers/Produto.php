@@ -24,8 +24,8 @@ class Produto extends Controller
     }
 
     function createProduto(Request $dados){
-        $request->merge([
-            'valor' => str_replace(',', '.', $request->valor),
+        $dados->merge([
+            'valor' => str_replace(',', '.', $dados->valor),
         ]); 
         $validator = Validator::make(
             $dados->all(),
@@ -59,7 +59,7 @@ class Produto extends Controller
         $produto::create($dados->all());
 
         $produtos = new \App\Models\Produto();
-        return view('dashboard.produto.create');
+        return view('dashboard.produto.index', ['success'=>'Cadastrado de produto realizado!']);
     }
 
     public function getStatus(){
@@ -73,26 +73,26 @@ class Produto extends Controller
 function readProduto(){
     $produto = new \App\Models\Produto();
 
-    return view('produto.read', ['produtos'=>$produto::all()]);
+    return view('dashboard.produto.read', ['produtos'=>$produto::all()]);
 }
 
-    function updateProduto(string $id){
-        $produto = Produto::findOrFail($id);
+    function updateProduto(string $produto_id){
+        $produto = Produto::findOrFail($produto_id);
 
         return view('dashboard.produto.update', ['Produto'=>$produto]);
     }
 
-    function deleteProduto(string $id) {
-            $produto = Produto::findOrFail($id);
-            $produto::destroy($id);
+    function deleteProduto(string $produto_id) {
+            $produto = Produto::findOrFail($produto_id);
+            $produto::destroy($produto_id);
     
-            return view('dashboard.produto.index', ['success'=>'Removido!', 'Produtos'=>$produto::all()]);
+            return view('dashboard.produto.index', ['success'=>'Removido!', 'produtos'=>$produto::all()]);
     
         }
     
         function saveProduto(Request $dados) {
-            $request->merge([
-                'valor' => str_replace(',', '.', $request->valor),
+            $dados->merge([
+                'valor' => str_replace(',', '.', $dados->valor),
             ]); 
             $validator = Validator::make(
                 $dados->all(),
@@ -127,7 +127,7 @@ function readProduto(){
     
             $produtos = new \App\Models\Produto();
     
-            return view('dashboard.produto.update', ['success'=>'Atualizado!', 'rodutos'=>$produto::all()]);
+            return view('dashboard.produto.update', ['success'=>'Atualizado!', 'produtos'=>$produto::all()]);
         }
 }
 

@@ -63,10 +63,10 @@ class Usuario extends Controller{
     
     // ADMIN
 
-    function updateUsuario(string $id){
-        $usuario = Usuario::findOrFail($id);
+    function updateUsuario(string $produto_id){
+        $usuario = Usuario::findOrFail($produto_id);
 
-        return view('usuario.update', ['usuario'=>$usuario]);
+        return view('dashboard.usuario.update', ['usuario'=>$usuario]);
     }
 
     function saveUsuario(Request $dados) {
@@ -75,7 +75,7 @@ class Usuario extends Controller{
         [
             'nome' => 'required|min:3|max:255',
             'email' => 'required|email|min:3',
-            'senha' => 'required|senha::min(8)->letters()->mixedCase()->numbers()->symbols()'
+            'senha' => ['required', Password::min(8)->letters()->mixedCase()->numbers()->symbols()]
         ],
         [
             'nome.required' => 'O campo nome é obrigatório.',
@@ -89,12 +89,12 @@ class Usuario extends Controller{
             'senha.letters' => 'O campo senha deve conter pelo menos uma letra',
             'senha.mixedCase' => 'O campo senha deve conter pelo menos uma letra minuscula e maiuscula',
             'senha.numbers' => 'O campo senha deve conter pelo menos um número',
-            'senha.numbers' => 'O campo senha deve conter pelo menos um simbolo (exemplo: @ &)'
+            'senha.symbols' => 'O campo senha deve conter pelo menos um simbolo (exemplo: @ &)'
         ]
         );
             if ($validator->fails()) {
             return redirect()
-                ->route('usuario.update')
+                ->route('dashboard.usuario.update')
                 ->withErrors($validator)
                 ->withInput();
                 $usuario = new \App\Models\Usuario();
@@ -102,21 +102,21 @@ class Usuario extends Controller{
             
                 $usuarios = new \App\Models\Usuario();
             
-                return view('usuario.update', ['success'=>'Atualizado!', 'usuarios'=>$usuario::all()]);
+                return view('dashboard.usuario.update', ['success'=>'Atualizado!', 'usuarios'=>$usuario::all()]);
                 }
     }
 
     function readUsuario(){
         $usuario = new \App\Models\Usuario();
 
-        return view('usuario.read', ['usuarios'=>$usuario::all()]);
+        return view('dashboard.usuario.read', ['usuarios'=>$usuario::all()]);
     }
 
-    function deleteUsuario(string $id) {
-            $usuario = Usuario::findOrFail($id);
-            $usuario::destroy($id);
+    function deleteUsuario(string $produto_id) {
+            $usuario = Usuario::findOrFail($produto_id);
+            $usuario::destroy($produto_id);
     
-            return view('usuario.index', ['success'=>'Removido!', 'usuarios'=>$usuario::all()]);
+            return view('dashboard.usuario.index', ['success'=>'Removido!', 'usuarios'=>$usuario::all()]);
     }
 }
 
