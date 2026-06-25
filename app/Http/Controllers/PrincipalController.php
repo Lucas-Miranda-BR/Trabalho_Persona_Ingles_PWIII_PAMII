@@ -11,7 +11,7 @@ class PrincipalController extends Controller
 {
     public function principal()
     {
-        return view('principal');
+        return view('principal', ['produtos' => Produto::all()]);
     }
 
     public function dashboardAdmin(){

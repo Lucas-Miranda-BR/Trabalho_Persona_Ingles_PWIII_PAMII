@@ -25,7 +25,7 @@ Route::prefix('/usuario')->group(function(){
     Route::get('/logout', [App\Http\Controllers\UsuarioController::class, 'logoutUsuario'])->name('usuario.logout');
 });
 Route::prefix('/produto')->group(function(){
-    Route::get('/compra/{id}', [App\Http\Controllers\ProdutoController::class, 'readIdProduto'])->name('dashboard.produto.compra-id');
+    Route::get('/compra/{id}', [App\Http\Controllers\ProdutoController::class, 'readIdProduto'])->name('produto.compra');
 });
 
 // ADMIN

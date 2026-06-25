@@ -60,6 +60,7 @@
                     <thead>
                         <tr>
                             <th>Nome</th>
+                            <th>Email</th>
                             <th>Admin</th>
                             <th>Ações</th>
                         </tr>
@@ -71,6 +72,7 @@
 
                         <tr>
                             <td>{{ $usuario->nome }}</td>
+                            <td>{{ $usuario->email }}</td>
                             <td>{{ $usuario->admin }}</td>
 
                             <td>

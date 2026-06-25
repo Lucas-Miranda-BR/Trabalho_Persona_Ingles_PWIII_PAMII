@@ -12,9 +12,9 @@ class ProdutoController extends Controller
 
     // PUBLICO
 
-    function readProdutoId(string $id){
+    function readIdProduto(string $id){
         $produto = Produto::findOrFail($id);
-        return view('produto.compra-id', compact('produto'));
+        return view('produto.compra', compact('produto'));
         }
 
     
@@ -79,6 +79,13 @@ function readProduto(){
 
     return view('dashboard.produto.read', ['produtos'=>$produto::all()]);
 }
+function deleteProduto(string $produto_id) {
+        $produto = Produto::findOrFail($produto_id);
+        $produto::destroy($produto_id);
+
+        return view('dashboard.produto.read', ['success'=>'Removido!', 'produtos'=>$produto::all()]);
+
+    }
 
     function updateProduto(string $produto_id){
         $produto = Produto::findOrFail($produto_id);
@@ -86,13 +93,6 @@ function readProduto(){
         return view('dashboard.produto.update', ['produto'=>$produto]);
     }
 
-    function deleteProduto(string $produto_id) {
-            $produto = Produto::findOrFail($produto_id);
-            $produto::destroy($produto_id);
-    
-            return view('dashboard.produto.read', ['success'=>'Removido!', 'produtos'=>$produto::all()]);
-    
-        }
     
         function saveProduto(Request $dados) {
             $dados->merge([
@@ -126,8 +126,8 @@ function readProduto(){
                   ->withErrors($validator)
                   ->withInput();
           }
-          $produto = new \App\Models\Produto();
-            $produto::update($dados->all());
+          $produto = \App\Models\Produto::findOrFail($dados->id);
+          $produto->update($dados->all());
     
             $produtos = new \App\Models\Produto();
     

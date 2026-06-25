@@ -98,16 +98,16 @@
                                 {{$produto->descricao}}
                             </p>
                             <h4 class="preco">R$ {{$produto->valor}}</h4>
-                            <form action="{{ route('produto.compra', ['id' => $produto->id]) }}" method="GET">
+                            <form action="{{ route('produto.compra', ['id' => $produto->produto_id]) }}" method="GET">
                                 <button class="btn btn-info text-white" type="submit">Compra</button>
                             </form>
                         </div>
                     </div>
                 </div>
-    @endforeach
-    @endisset
             </div>
         </div>
+        @endforeach
+        @endisset
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
