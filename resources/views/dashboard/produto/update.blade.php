@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dashboard Admin - Solemn's Workshop</title>
+    <title>Editar Produto - Solemn's Workshop</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
@@ -44,111 +44,152 @@
     </div>
 </nav>
 
-<div class="modal fade" id="editarProduto" tabindex="-1">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
+<!-- CONTEÚDO -->
 
-        <div class="modal-content">
+<div class="container py-5">
 
-            <div class="modal-header bg-warning">
-                <h5 class="modal-title">
-                    Editar Produto
-                </h5>
+    <div class="row justify-content-center">
 
-                <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal">
-                </button>
-            </div>
+        <div class="col-lg-8">
 
-            <div class="modal-body">
+            <div class="card shadow-sm">
 
-                <form action="{{route('dashboard.produto.save')}}" method="post">
+                <div class="card-header bg-warning">
 
-                    @csrf
+                    <h5 class="mb-0">
+                        Editar Produto
+                    </h5>
 
-                    <input type="hidden" name="id" value="{{ $produto->id }}">
+                </div>
 
-                    <div class="mb-3">
-                        <label class="form-label" for="nome">
-                            Nome
-                        </label>
-                        <input type="text" class="form-control" name="nome" id="nome" value="{{ $produto->nome }}">
-                    </div>
+                <div class="card-body">
 
-                    <div class="row">
+                    <form action="{{route('dashboard.produto.save')}}" method="post">
 
-                        <div class="col-md-6 mb-3">
+                        @csrf
 
-                            <label class="form-label" for="valor">
-                                Preço
+                        <input
+                            type="hidden"
+                            name="id"
+                            value="{{ $produto->id }}">
+
+                        <div class="mb-3">
+
+                            <label class="form-label" for="nome">
+                                Nome
                             </label>
 
-                            <input type="number" class="form-control" name="valor" id="valor" value="{{ $produto->valor }}">
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="nome"
+                                id="nome"
+                                value="{{ $produto->nome }}">
 
                         </div>
 
-                        <div class="col-md-6 mb-3">
+                        <div class="row">
 
-                            <label class="form-label" for="estoque">
-                                Estoque
-                            </label>
+                            <div class="col-md-6 mb-3">
 
-                            <input type="number" class="form-control" name="estoque" id="estoque" value="{{ $produto->estoque }}">
+                                <label class="form-label" for="valor">
+                                    Preço
+                                </label>
+
+                                <input
+                                    type="number"
+                                    class="form-control"
+                                    name="valor"
+                                    id="valor"
+                                    value="{{ $produto->valor }}">
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label" for="estoque">
+                                    Estoque
+                                </label>
+
+                                <input
+                                    type="number"
+                                    class="form-control"
+                                    name="estoque"
+                                    id="estoque"
+                                    value="{{ $produto->estoque }}">
+
+                            </div>
 
                         </div>
 
-                    </div>
+                        <div class="mb-3">
 
-                    <div class="mb-3">
+                            <label class="form-label" for="descricao">
+                                Descrição
+                            </label>
 
-                        <label class="form-label" for="descricao">
-                            Descrição
-                        </label>
+                            <textarea
+                                class="form-control"
+                                rows="4"
+                                name="descricao"
+                                id="descricao">{{ $produto->descricao }}</textarea>
 
-                        <textarea class="form-control" rows="4" name="descricao" id="descricao" value="{{ $produto->descricao }}"></textarea>
+                        </div>
 
-                    </div>
-                    
-                    <button
-                        type="submit"
-                        class="btn btn-success">
-                        Salvar Alterações
-                    </button>
-                </form>
+                        <div class="d-flex gap-2">
+
+                            <button
+                                type="submit"
+                                class="btn btn-success">
+                                Salvar Alterações
+                            </button>
+
+                            <a href="{{route('dashboard.dashboard')}}"
+                               class="btn btn-secondary">
+                                Cancelar
+                            </a>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
             </div>
 
-            <div class="modal-footer">
+            @isset($success)
 
-                <a href="{{route('dashboard.dashboard')}}"><button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-bs-dismiss="modal">
-                    Cancelar
-                </button>
-                </a>
+                <div class="alert alert-success mt-4">
+                    {{$success}}
+                </div>
 
-            </div>
+            @endisset
+
+            @if($errors->any())
+
+                <div class="alert alert-danger mt-4">
+
+                    <ul class="mb-0">
+
+                        @foreach($errors->all() as $error)
+
+                            <li>{{ $error }}</li>
+
+                        @endforeach
+
+                    </ul>
+
+                </div>
+
+            @endif
 
         </div>
 
     </div>
+
 </div>
 
-@isset($success)
-                            <div class="mb-3">
-                            <p>{{$success}}</p>
-                            </div>
-                        @endisset
-
-@if($errors->any())
-                            <ul>
-                                @foreach($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        @endif
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dashboard Admin - Solemn's Workshop</title>
+    <title>Editar Usuário - Solemn's Workshop</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
@@ -44,117 +44,146 @@
     </div>
 </nav>
 
-<div class="modal fade" id="editarUsuario" tabindex="-1">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
+<!-- CONTEÚDO -->
 
-        <div class="modal-content">
+<div class="container py-5">
 
-            <div class="modal-header bg-warning">
-                <h5 class="modal-title">
-                    Editar Usuário
-                </h5>
+    <div class="row justify-content-center">
 
-                <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal">
-                </button>
-            </div>
+        <div class="col-lg-8">
 
-            <div class="modal-body">
+            <div class="card shadow-sm">
 
-                <form action="{{route('dashboard.usuario.save')}}" method="post">
+                <div class="card-header bg-warning">
 
-                <input type="hidden" name="id" value="{{ $usuario->id }}">
+                    <h5 class="mb-0">
+                        Editar Usuário
+                    </h5>
 
-                @csrf
-                    <div class="row">
+                </div>
 
-                        <div class="col-md-6 mb-3">
+                <div class="card-body">
 
-                            <label class="form-label" for="nome">
-                                Nome
-                            </label>
+                    <form action="{{route('dashboard.usuario.save')}}" method="post">
 
-                            <input type="text" class="form-control" name="nome" id="nome" value="{{ $usuario->nome }}">
+                        @csrf
 
+                        <input
+                            type="hidden"
+                            name="id"
+                            value="{{ $usuario->id }}">
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label" for="nome">
+                                    Nome
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="nome"
+                                    id="nome"
+                                    value="{{ $usuario->nome }}">
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label" for="email">
+                                    E-mail
+                                </label>
+
+                                <input
+                                    type="email"
+                                    class="form-control"
+                                    name="email"
+                                    id="email"
+                                    value="{{ $usuario->email }}">
+
+                            </div>
 
                         </div>
 
-                        <div class="col-md-6 mb-3">
+                        <div class="mb-4">
 
-                            <label class="form-label" for="email">
-                                E-mail
+                            <label class="form-label" for="admin">
+                                Tipo de Usuário
                             </label>
 
-                            <input type="email" class="form-control" name="email" id="email" value="{{ $usuario->email }}">
+                            <select
+                                class="form-select"
+                                name="admin"
+                                id="admin">
+
+                                <option value="0">
+                                    Cliente
+                                </option>
+
+                                <option value="1" selected>
+                                    Administrador
+                                </option>
+
+                            </select>
 
                         </div>
 
-                    </div>
+                        <div class="d-flex gap-2">
 
-                    <div class="row">
+                            <button
+                                type="submit"
+                                class="btn btn-success">
+                                Salvar Alterações
+                            </button>
 
-                    <div class="mb-3">
+                            <a href="{{route('dashboard.dashboard')}}"
+                               class="btn btn-secondary">
+                                Cancelar
+                            </a>
 
-                        <label class="form-label" for="admin">
-                            Tipo
-                        </label>
+                        </div>
 
-                        <select class="form-select" name="admin" id="admin" value="{{ $usuario->admin }}">
+                    </form>
 
-                            <option>
-                                Cliente
-                            </option>
-
-                            <option selected>
-                                Administrador
-                            </option>
-
-                        </select>
-
-                    </div>
-    
-                    <button
-                        type="submit"
-                        class="btn btn-success">
-                        Salvar Alterações
-                    </button>
-
-                </form>
+                </div>
 
             </div>
 
-            <div class="modal-footer">
+            @isset($success)
 
-            <a href="{{route('dashboard.dashboard')}}"><button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-bs-dismiss="modal">
-                    Cancelar
-                </button>
-            </a>
+                <div class="alert alert-success mt-4">
+                    {{$success}}
+                </div>
 
-            </div>
+            @endisset
+
+            @if($errors->any())
+
+                <div class="alert alert-danger mt-4">
+
+                    <ul class="mb-0">
+
+                        @foreach($errors->all() as $error)
+
+                            <li>{{ $error }}</li>
+
+                        @endforeach
+
+                    </ul>
+
+                </div>
+
+            @endif
 
         </div>
 
     </div>
+
 </div>
 
-@isset($success)
-                            <div class="mb-3">
-                            <p>{{$success}}</p>
-                            </div>
-                        @endisset
-
-@if($errors->any())
-                            <ul>
-                                @foreach($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        @endif
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

@@ -50,7 +50,9 @@
             <h5 class="mb-0">
                 Produtos Cadastrados
             </h5>
-            <a href="{{ route('dashboard.produto.index') }}">Adicionar Produtos</a>
+            <a href="{{ route('dashboard.produto.index') }}" class="btn btn-success btn-adicionar-produto">
+                Adicionar Produto
+            </a>
         </div>
 
         <div class="card-body">

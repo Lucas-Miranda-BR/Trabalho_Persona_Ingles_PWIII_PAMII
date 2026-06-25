@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Usuario;
+use App\Models\Produto;
 
 class PrincipalController extends Controller
 {
@@ -13,7 +15,10 @@ class PrincipalController extends Controller
     }
 
     public function dashboardAdmin(){
-        return view('dashboard.dashboard');
+        $totalUsuarios = Usuario::count();
+        $totalProdutos = Produto::count();
+        $produtosForaEstoque = Produto::where('estoque', 0)->count();
+        return view('dashboard.dashboard', compact('totalUsuarios', 'totalProdutos', 'produtosForaEstoque'));
     }
 
     public function erro404()

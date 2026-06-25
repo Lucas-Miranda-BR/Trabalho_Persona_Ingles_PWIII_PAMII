@@ -27,7 +27,7 @@ class ProdutoController extends Controller
     function createProduto(Request $dados){
         // Merge junta um dado especificado
         $dados->merge([
-            'valor' => str_replace('.', ',', $dados->valor),
+            'valor' => str_replace(',', '.', $dados->valor),
         ]); 
         $validator = Validator::make(
             $dados->all(),
@@ -59,8 +59,8 @@ class ProdutoController extends Controller
       }
 
       $status = match (true) {
-        $this->estoque == 0 => 'Não disponível',
-        $this->estoque <= 5 => 'Pouco estoque',
+        $dados->estoque == 0 => 'Não disponível',
+        $dados->estoque <= 5 => 'Pouco estoque',
         default => 'Disponível'
       };
 
