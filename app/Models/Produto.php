@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Produto extends Model
 {
@@ -19,8 +18,4 @@ class Produto extends Model
         'estoque',
         'status'
     ];
-
-    public function carrinhos(): HasMany{
-        return $this->hasMany(Carrinho::class, 'produto_id', 'produto_id');
-    }
 }
