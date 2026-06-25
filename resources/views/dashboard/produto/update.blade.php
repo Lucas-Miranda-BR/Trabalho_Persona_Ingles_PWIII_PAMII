@@ -29,9 +29,9 @@
 
         <div class="d-flex align-items-center gap-2">
 
-            <a href="{{ route('principal') }}"
+            <a href="{{ route('dashboard.dashboard') }}"
                class="btn btn-info text-white btn-navbar">
-                Ver Loja
+                Dashboard
             </a>
 
             <a href="{{ route('usuario.logout') }}"
@@ -63,7 +63,7 @@
 
             <div class="modal-body">
 
-                <form action="dashboard.produto.save" method="post">
+                <form action="{{route('dashboard.produto.save')}}" method="post">
 
                     @csrf
 
@@ -148,5 +148,7 @@
                                 @endforeach
                             </ul>
                         @endif
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

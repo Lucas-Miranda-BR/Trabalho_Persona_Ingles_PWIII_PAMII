@@ -29,9 +29,9 @@
 
         <div class="d-flex align-items-center gap-2">
 
-            <a href="{{ route('principal') }}"
+            <a href="{{ route('dashboard.dashboard') }}"
                class="btn btn-info text-white btn-navbar">
-                Ver Loja
+                Dashboard
             </a>
 
             <a href="{{ route('usuario.logout') }}"
@@ -50,7 +50,9 @@
             <h5 class="mb-0">
                 Produtos Cadastrados
             </h5>
+            <a href="{{ route('dashboard.produto.index') }}">Adicionar Produtos</a>
         </div>
+
         <div class="card-body">
             
             <div class="table-responsive">
@@ -72,30 +74,31 @@
                         @foreach($produtos as $produto)
 
                         <tr>
-                            <td>$produto->nome</td>
-                            <td>$produto->preco</td>
-                            <td>$produto->estoque</td>
+                            <td>{{ $produto->nome }}</td>
+                            <td>R$ {{ $produto->valor }}</td>
+                            <td>{{ $produto->estoque }}</td>
 
                             <td>
                                 <span class="badge bg-success">
-                                    $produto->status
+                                    {{ $produto->status }}
                                 </span>
                             </td>
 
                             <td>
-                            <form action="{{ route('dashboard.produto.update', ['produto_id' => $produto->produto_id]) }}" method="GET">
+                            <form action="{{ route('dashboard.produto.update', ['id' => $produto->produto_id]) }}" method="GET">
                                     <button class="btn btn-warning btn-sm" type="submit" data-bs-toggle="modal" data-bs-target="#editarProduto">
                                         Editar
                                     </button>
                                 </form>
-                                <form action="{{ route('dashboard.produto.delete', ['produto_id' => $produto->produto_id]) }}" method="GET">
+                                <form action="{{ route('dashboard.produto.delete', ['id' => $produto->produto_id]) }}" method="GET">
                                 <button class="btn btn-danger btn-sm" type="submit">
                                     Excluir
                                 </button>
                                 </form>
                             </td>
                         </tr>
-
+                        @endforeach
+                        @endisset
                     </tbody>
 
                 </table>
@@ -105,5 +108,6 @@
         </div>
 
     </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

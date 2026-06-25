@@ -29,9 +29,9 @@
 
         <div class="d-flex align-items-center gap-2">
 
-            <a href="{{ route('principal') }}"
+            <a href="{{ route('dashboard.dashboard') }}"
                class="btn btn-info text-white btn-navbar">
-                Ver Loja
+                Dashboard
             </a>
 
             <a href="{{ route('usuario.logout') }}"
@@ -70,8 +70,8 @@
                         @foreach($usuarios as $usuario)
 
                         <tr>
-                            <td>$usuario->nome</td>
-                            <td>$usuario->admin</td>
+                            <td>{{ $usuario->nome }}</td>
+                            <td>{{ $usuario->admin }}</td>
 
                             <td>
                                 <form action="{{ route('dashboard.usuario.update', ['usuario_id' => $usuario->usuario_id]) }}" method="GET">
@@ -79,14 +79,15 @@
                                         Editar
                                     </button>
                                 </form>
-                                <form form action="{{ route('dashboard.usuario.update', ['usuario_id' => $usuario->usuario_id]) }}" method="GET">
+                                <form action="{{ route('dashboard.usuario.update', ['usuario_id' => $usuario->usuario_id]) }}" method="GET">
                                 <button class="btn btn-danger btn-sm" type="submit">
                                     Excluir
                                 </button>
                                 </form>
                             </td>
                         </tr>
-
+                        @endforeach
+                        @endisset
                     </tbody>
 
                 </table>
@@ -96,5 +97,6 @@
         </div>
 
     </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

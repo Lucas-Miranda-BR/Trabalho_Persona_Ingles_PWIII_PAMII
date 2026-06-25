@@ -6,8 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
+use App\Models\Usuario;
 
-class Usuario extends Controller{
+class UsuarioController extends Controller{
 
     // PUBLICO
 

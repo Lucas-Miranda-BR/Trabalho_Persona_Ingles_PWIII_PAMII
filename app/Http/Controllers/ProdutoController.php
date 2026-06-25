@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Produto;
 
-class Produto extends Controller
+class ProdutoController extends Controller
 {
 
     // PUBLICO
@@ -24,8 +25,9 @@ class Produto extends Controller
     }
 
     function createProduto(Request $dados){
+        // Merge junta um dado especificado
         $dados->merge([
-            'valor' => str_replace(',', '.', $dados->valor),
+            'valor' => str_replace('.', ',', $dados->valor),
         ]); 
         $validator = Validator::make(
             $dados->all(),
@@ -55,20 +57,22 @@ class Produto extends Controller
               ->withErrors($validator)
               ->withInput();
       }
+
+      $status = match (true) {
+        $this->estoque == 0 => 'Não disponível',
+        $this->estoque <= 5 => 'Pouco estoque',
+        default => 'Disponível'
+      };
+
+      $dados->merge([
+        'status' => $status
+      ]);
       $produto = new \App\Models\Produto();
         $produto::create($dados->all());
 
         $produtos = new \App\Models\Produto();
         return view('dashboard.produto.index', ['success'=>'Cadastrado de produto realizado!']);
     }
-
-    public function getStatus(){
-    return match (true) {
-        $this->estoque == 0 => 'Não disponível',
-        $this->estoque <= 5 => 'Pouco estoque',
-        default => 'Disponível',
-    };
-}
 
 function readProduto(){
     $produto = new \App\Models\Produto();
@@ -79,14 +83,14 @@ function readProduto(){
     function updateProduto(string $produto_id){
         $produto = Produto::findOrFail($produto_id);
 
-        return view('dashboard.produto.update', ['Produto'=>$produto]);
+        return view('dashboard.produto.update', ['produto'=>$produto]);
     }
 
     function deleteProduto(string $produto_id) {
             $produto = Produto::findOrFail($produto_id);
             $produto::destroy($produto_id);
     
-            return view('dashboard.produto.index', ['success'=>'Removido!', 'produtos'=>$produto::all()]);
+            return view('dashboard.produto.read', ['success'=>'Removido!', 'produtos'=>$produto::all()]);
     
         }
     

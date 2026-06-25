@@ -61,6 +61,8 @@
     </div>
 
     <!-- BOTÕES DE ACESSO -->
+     <a href="{{ route('dashboard.produto.read') }}">PRODUTOS</a>
+     <a href="{{ route('dashboard.usuario.read') }}">USUÁRIOS</a>
 
 </div>
 
