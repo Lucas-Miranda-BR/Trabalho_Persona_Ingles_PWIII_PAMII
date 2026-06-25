@@ -23,7 +23,6 @@ Route::prefix('/usuario')->group(function(){
     Route::post('/create', [App\Http\Controllers\UsuarioController::class, 'createUsuario'])->name('usuario.create');
     Route::get('/login', [App\Http\Controllers\UsuarioController::class, 'loginUsuario'])->name('usuario.login');
     Route::get('/logout', [App\Http\Controllers\UsuarioController::class, 'logoutUsuario'])->name('usuario.logout');
-    Route::get('/update/{id}', [App\Http\Controllers\UsuarioController::class, 'updateUsuario'])->name('usuario.update');
 });
 Route::prefix('/produto')->group(function(){
     Route::get('/compra/{id}', [App\Http\Controllers\ProdutoController::class, 'readIdProduto'])->name('dashboard.produto.compra-id');
@@ -45,6 +44,7 @@ Route::prefix('/dashboard/produto')->group(function(){
 Route::prefix('/dashboard/usuario')->group(function(){
     Route::get('/read', [App\Http\Controllers\UsuarioController::class, 'readUsuario'])->name('dashboard.usuario.read');
     Route::get('/delete/{id}', [App\Http\Controllers\UsuarioController::class, 'deleteUsuario'])->name('dashboard.usuario.delete');
+    Route::get('/update/{id}', [App\Http\Controllers\UsuarioController::class, 'updateUsuario'])->name('dashboard.usuario.update');
     Route::post('/save', [App\Http\Controllers\UsuarioController::class, 'saveUsuario'])->name('dashboard.usuario.save');
 });
 
