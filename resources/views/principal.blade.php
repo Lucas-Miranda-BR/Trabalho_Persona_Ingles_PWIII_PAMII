@@ -91,36 +91,42 @@
 
             @isset($produtos)
             @foreach($produtos as $produto)
-
             <div class="col-12 col-md-6 col-lg-4">
-
+                
                 <div class="card produto-card h-100 shadow-sm">
-
+                    
                     <div class="card-body d-flex flex-column text-center">
-
+                        
                         <h5 class="card-title">
                             {{ $produto->nome }}
                         </h5>
-
+                        
                         <p class="card-text flex-grow-1">
                             {{ $produto->descricao }}
                         </p>
-
+                        
                         <h4 class="preco">
                             R$ {{ $produto->valor }}
                         </h4>
+                        @if($produto->estoque == 0 )
+                        
+            <button class="btn btn-info text-white w-100" type="button">
+                Fora de estoque
+            </button>
+            
+            @else
+            
+            <form action="{{ route('produto.compra', ['produto_id' => $produto->produto_id]) }}" method="GET">
+                <button class="btn btn-info text-white w-100" type="submit">
+                    Comprar
+                </button>
+            </form>
+            @endif
+    </div>
 
-                        <form action="{{ route('produto.compra', ['produto_id' => $produto->produto_id]) }}" method="GET">
-                            <button class="btn btn-info text-white w-100" type="submit">
-                                Comprar
-                            </button>
-                        </form>
+</div>
 
-                    </div>
-
-                </div>
-
-            </div>
+</div>
 
             @endforeach
             @endisset
