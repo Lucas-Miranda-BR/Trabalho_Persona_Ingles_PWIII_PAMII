@@ -71,7 +71,7 @@
                         <input
                             type="hidden"
                             name="id"
-                            value="{{ $usuario->id }}">
+                            value="{{ $usuario->usuario_id }}">
 
                         <div class="row">
 

@@ -72,12 +72,10 @@ class UsuarioController extends Controller{
 
     function saveUsuario(Request $dados) {
     
-          $usuario = \App\Models\Usuario::findOrFail($dados->id);
+          $usuario = \App\Models\Usuario::findOrFail($dados->usuario_id);
           $usuario->update($dados->all());
-    
-            $usuarios = new \App\Models\Usuario();
-    
-            return view('dashboard.usuario.update', ['success'=>'Atualizado!', 'usuarios'=>$usuario::all()]);
+        
+            return view('dashboard.usuario.update', $usuario->usuario_id)->with('success'=>'Atualizado!');
                 }
     }
 

@@ -71,7 +71,7 @@
                         <input
                             type="hidden"
                             name="id"
-                            value="{{ $produto->id }}">
+                            value="{{ $produto->produto_id }}">
 
                         <div class="mb-3">
 

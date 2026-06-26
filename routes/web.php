@@ -25,7 +25,7 @@ Route::prefix('/usuario')->group(function(){
     Route::get('/logout', [App\Http\Controllers\UsuarioController::class, 'logoutUsuario'])->name('usuario.logout');
 });
 Route::prefix('/produto')->group(function(){
-    Route::get('/compra/{id}', [App\Http\Controllers\ProdutoController::class, 'readIdProduto'])->name('produto.compra');
+    Route::get('/compra/{produto_id}', [App\Http\Controllers\ProdutoController::class, 'readIdProduto'])->name('produto.compra');
 });
 
 // ADMIN
@@ -36,15 +36,15 @@ Route::prefix('/dashboard/produto')->group(function(){
     Route::get('/index', [App\Http\Controllers\ProdutoController::class, 'indexProduto'])->name('dashboard.produto.index');
     Route::post('/create', [App\Http\Controllers\ProdutoController::class, 'createProduto'])->name('dashboard.produto.create');
     Route::get('/read', [App\Http\Controllers\ProdutoController::class, 'readProduto'])->name('dashboard.produto.read');
-    Route::get('/update/{id}', [App\Http\Controllers\ProdutoController::class, 'updateProduto'])->name('dashboard.produto.update');
-    Route::get('/delete/{id}', [App\Http\Controllers\ProdutoController::class, 'deleteProduto'])->name('dashboard.produto.delete');
+    Route::get('/update/{produto_id}', [App\Http\Controllers\ProdutoController::class, 'updateProduto'])->name('dashboard.produto.update');
+    Route::get('/delete/{produto_id}', [App\Http\Controllers\ProdutoController::class, 'deleteProduto'])->name('dashboard.produto.delete');
     Route::post('/save', [App\Http\Controllers\ProdutoController::class, 'saveProduto'])->name('dashboard.produto.save');
 });
 
 Route::prefix('/dashboard/usuario')->group(function(){
     Route::get('/read', [App\Http\Controllers\UsuarioController::class, 'readUsuario'])->name('dashboard.usuario.read');
-    Route::get('/delete/{id}', [App\Http\Controllers\UsuarioController::class, 'deleteUsuario'])->name('dashboard.usuario.delete');
-    Route::get('/update/{id}', [App\Http\Controllers\UsuarioController::class, 'updateUsuario'])->name('dashboard.usuario.update');
+    Route::get('/delete/{usuario_id}', [App\Http\Controllers\UsuarioController::class, 'deleteUsuario'])->name('dashboard.usuario.delete');
+    Route::get('/update/{usuario_id}', [App\Http\Controllers\UsuarioController::class, 'updateUsuario'])->name('dashboard.usuario.update');
     Route::post('/save', [App\Http\Controllers\UsuarioController::class, 'saveUsuario'])->name('dashboard.usuario.save');
 });
 

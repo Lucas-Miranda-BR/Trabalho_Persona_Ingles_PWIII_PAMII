@@ -98,12 +98,10 @@ function deleteProduto(string $produto_id) {
             $dados->merge([
                 'valor' => str_replace(',', '.', $dados->valor),
             ]); 
-          $produto = \App\Models\Produto::findOrFail($dados->id);
+          $produto = \App\Models\Produto::findOrFail($dados->produto_id);
           $produto->update($dados->all());
     
-            $produtos = new \App\Models\Produto();
-    
-            return view('dashboard.produto.update', ['success'=>'Atualizado!', 'produtos'=>$produto::all()]);
+            return view('dashboard.produto.update', $produto->produto_id)with->('success'=>'Atualizado!');
         }
 }
 
