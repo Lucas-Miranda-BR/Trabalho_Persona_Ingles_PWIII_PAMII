@@ -47,6 +47,8 @@
                     name="nome"
                     id="nome"
                     value="{{ old('nome') }}"
+                    autocomplete="off"
+                    required
                     >
             </div>
 
@@ -61,7 +63,9 @@
                     placeholder="Digite seu sobrenome"
                     name="sobrenome"
                     id="sobrenome"
-                    value="{{ old('sobrenome') }}">
+                    value="{{ old('sobrenome') }}"
+                    autocomplete="off"
+                    required>
             </div>
 
             <div class="mb-3">
@@ -75,7 +79,9 @@
                     placeholder="Digite seu e-mail"
                     name="email"
                     id="email"
-                    value="{{ old('email') }}">
+                    value="{{ old('email') }}"
+                    autocomplete="off"
+                    required>
             </div>
 
             <div class="mb-4">
@@ -89,7 +95,9 @@
                     placeholder="Crie uma senha"
                     name="senha"
                     id="senha"
-                    value="{{ old('senha') }}">
+                    value="{{ old('senha') }}"
+                    autocomplete="off"
+                    required>
             </div>
 
             <button class="btn btn-auth w-100">

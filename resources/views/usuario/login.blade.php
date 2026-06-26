@@ -48,6 +48,7 @@
                         id="email"
                         placeholder="Digite seu e-mail"
                         value="{{ old('email') }}"
+                        autocomplete="off"
                         required>
 
                 </div>
@@ -64,6 +65,7 @@
                         name="senha"
                         id="senha"
                         placeholder="Digite sua senha"
+                        autocomplete="off"
                         required>
 
                 </div>

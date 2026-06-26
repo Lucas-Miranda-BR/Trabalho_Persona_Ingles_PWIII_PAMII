@@ -71,7 +71,9 @@
                         <input
                             type="hidden"
                             name="produto_id"
-                            value="{{ $produto->produto_id }}">
+                            value="{{ $produto->produto_id }}"
+                            autocomplete="off"
+                            required>
 
                         <div class="mb-3">
 
@@ -84,7 +86,9 @@
                                 class="form-control"
                                 name="nome"
                                 id="nome"
-                                value="{{ $produto->nome }}">
+                                value="{{ $produto->nome }}"
+                                autocomplete="off"
+                                required>
 
                         </div>
 
@@ -101,7 +105,9 @@
                                     class="form-control"
                                     name="valor"
                                     id="valor"
-                                    value="{{ $produto->valor }}">
+                                    value="{{ $produto->valor }}"
+                                    autocomplete="off"
+                                    required>
 
                             </div>
 
@@ -116,7 +122,9 @@
                                     class="form-control"
                                     name="estoque"
                                     id="estoque"
-                                    value="{{ $produto->estoque }}">
+                                    value="{{ $produto->estoque }}"
+                                    autocomplete="off"
+                                    required>
 
                             </div>
 
@@ -132,7 +140,9 @@
                                 class="form-control"
                                 rows="4"
                                 name="descricao"
-                                id="descricao">{{ $produto->descricao }}</textarea>
+                                id="descricao"
+                                autocomplete="off"
+                                required>{{ $produto->descricao }}</textarea>
 
                         </div>
 

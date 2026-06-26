@@ -71,7 +71,9 @@
                         <input
                             type="hidden"
                             name="usuario_id"
-                            value="{{ $usuario->usuario_id }}">
+                            value="{{ $usuario->usuario_id }}"
+                            autocomplete="off"
+                            required>
 
                         <div class="row">
 
@@ -86,7 +88,9 @@
                                     class="form-control"
                                     name="nome"
                                     id="nome"
-                                    value="{{ $usuario->nome }}">
+                                    value="{{ $usuario->nome }}"
+                                    autocomplete="off"
+                                    required>
 
                             </div>
 
@@ -101,7 +105,9 @@
                                     class="form-control"
                                     name="email"
                                     id="email"
-                                    value="{{ $usuario->email }}">
+                                    value="{{ $usuario->email }}"
+                                    autocomplete="off"
+                                    required>
 
                             </div>
 
@@ -116,7 +122,9 @@
                             <select
                                 class="form-select"
                                 name="admin"
-                                id="admin">
+                                id="admin"
+                                autocomplete="off"
+                                required>
 
                                 <option value="0">
                                     Cliente

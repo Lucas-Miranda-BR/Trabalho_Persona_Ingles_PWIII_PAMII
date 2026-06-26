@@ -76,7 +76,7 @@
                             Nome do Produto
                         </label>
 
-                        <input type="text" class="form-control" name="nome" id="nome" value="{{ old('nome') }}">
+                        <input type="text" class="form-control" name="nome" id="nome" value="{{ old('nome') }}" autocomplete="off" required>
                     </div>
 
                     <div class="col-md-3 mb-3">
@@ -84,7 +84,7 @@
                             Preço
                         </label>
 
-                        <input type="number" step="0.01" class="form-control" name="valor" id="valor" value="{{ old('valor') }}">
+                        <input type="number" step="0.01" class="form-control" name="valor" id="valor" value="{{ old('valor') }}" autocomplete="off" required>
                     </div>
 
                     <div class="col-md-3 mb-3">
@@ -92,7 +92,7 @@
                             Estoque
                         </label>
 
-                        <input type="number" class="form-control"  name="estoque" id="estoque" value="{{ old('estoque') }}">
+                        <input type="number" class="form-control"  name="estoque" id="estoque" value="{{ old('estoque') }}" autocomplete="off" required>
                     </div>
 
                 </div>
@@ -103,7 +103,7 @@
                         Descrição
                     </label>
 
-                    <textarea class="form-control" rows="3" name="descricao" id="descricao" value="{{ old('descricao') }}"></textarea>
+                    <textarea class="form-control" rows="3" name="descricao" id="descricao" value="{{ old('descricao') }} " autocomplete="off" required></textarea>
 
                 </div>
 
