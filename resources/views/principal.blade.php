@@ -31,7 +31,21 @@
             <!-- Itens da Direita -->
             <div class="d-flex align-items-center justify-content-center gap-2 ms-auto">
 
-                <a href="{{ route('usuario.login') }}"
+                        @if(session()->has('usuario_id'))
+
+            @if(session('admin'))
+                <a href="{{ route('dashboard.dashboard') }}" class="btn btn-warning">
+                    Dashboard
+                </a>
+            @endif
+
+            <a href="{{ route('usuario.logout') }}" class="btn btn-outline-danger">
+                Sair
+            </a>
+
+            @else
+
+            <a href="{{ route('usuario.login') }}"
                 class="text-decoration-none text-dark nav-link-custom">
                     Login
                 </a>
@@ -40,6 +54,8 @@
                 class="text-decoration-none text-dark nav-link-custom">
                     Sign Up
                 </a>
+
+            @endif
 
             </div>
 
