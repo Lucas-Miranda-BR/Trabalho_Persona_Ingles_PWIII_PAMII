@@ -80,12 +80,8 @@ class UsuarioController extends Controller{
 
         return redirect()->route('principal');
     }
-    
-    // public function logout(){        
-    //     return view('usuario.login');
-    // }
 
-        public function logout()
+        public function logoutUsuario()
     {
         session()->flush();
 
