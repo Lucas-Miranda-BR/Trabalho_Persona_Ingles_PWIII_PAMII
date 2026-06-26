@@ -85,29 +85,49 @@
 
     <!-- produtos -->
 
-    @isset($produtos)
-    @foreach($produtos as $produto)
-        <div class="container py-5">
-            <div class="row justify-content-center g-4">
-                <div class="col-12 col-sm-6 col-lg-4 d-flex justify-content-center">
-                    <div class="card produto-card">
+    <div class="container py-5">
 
-                        <div class="card-body text-center">
-                            <h5 class="card-title">{{$produto->nome}}</h5>
-                            <p class="card-text">
-                                {{$produto->descricao}}
-                            </p>
-                            <h4 class="preco">R$ {{$produto->valor}}</h4>
-                            <form action="{{ route('produto.compra', ['id' => $produto->produto_id]) }}" method="GET">
-                                <button class="btn btn-info text-white" type="submit">Compra</button>
-                            </form>
-                        </div>
+        <div class="row g-4">
+
+            @isset($produtos)
+            @foreach($produtos as $produto)
+
+            <div class="col-12 col-md-6 col-lg-4">
+
+                <div class="card produto-card h-100 shadow-sm">
+
+                    <div class="card-body d-flex flex-column text-center">
+
+                        <h5 class="card-title">
+                            {{ $produto->nome }}
+                        </h5>
+
+                        <p class="card-text flex-grow-1">
+                            {{ $produto->descricao }}
+                        </p>
+
+                        <h4 class="preco">
+                            R$ {{ $produto->valor }}
+                        </h4>
+
+                        <form action="{{ route('produto.compra', ['produto_id' => $produto->produto_id]) }}" method="GET">
+                            <button class="btn btn-info text-white w-100" type="submit">
+                                Comprar
+                            </button>
+                        </form>
+
                     </div>
+
                 </div>
+
             </div>
+
+            @endforeach
+            @endisset
+
         </div>
-        @endforeach
-        @endisset
+
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 

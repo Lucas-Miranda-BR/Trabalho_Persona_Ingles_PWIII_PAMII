@@ -87,12 +87,12 @@
                             </td>
 
                             <td>
-                            <form action="{{ route('dashboard.produto.update', ['id' => $produto->produto_id]) }}" method="GET">
+                            <form action="{{ route('dashboard.produto.update', ['produto_id' => $produto->produto_id]) }}" method="GET">
                                     <button class="btn btn-warning btn-sm" type="submit" data-bs-toggle="modal" data-bs-target="#editarProduto">
                                         Editar
                                     </button>
                                 </form>
-                                <form action="{{ route('dashboard.produto.delete', ['id' => $produto->produto_id]) }}" method="GET">
+                                <form action="{{ route('dashboard.produto.delete', ['produto_id' => $produto->produto_id]) }}" method="GET">
                                 <button class="btn btn-danger btn-sm" type="submit">
                                     Excluir
                                 </button>

@@ -101,7 +101,7 @@ function deleteProduto(string $produto_id) {
           $produto = \App\Models\Produto::findOrFail($dados->produto_id);
           $produto->update($dados->all());
     
-            return view('dashboard.produto.update', $produto->produto_id)with->('success'=>'Atualizado!');
+            return view('dashboard.produto.update', ['produto' => $produto, 'success' => 'Atualizado!']);
         }
 }
 

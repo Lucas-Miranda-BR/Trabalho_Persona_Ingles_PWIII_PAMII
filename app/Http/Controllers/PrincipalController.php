@@ -18,7 +18,8 @@ class PrincipalController extends Controller
         $totalUsuarios = Usuario::count();
         $totalProdutos = Produto::count();
         $produtosForaEstoque = Produto::where('estoque', 0)->count();
-        return view('dashboard.dashboard', compact('totalUsuarios', 'totalProdutos', 'produtosForaEstoque'));
+        $totalAdmins = Usuario::where('admin', 1)->count();
+        return view('dashboard.dashboard', compact('totalUsuarios', 'totalProdutos','totalAdmins', 'produtosForaEstoque'));
     }
 
     public function erro404()

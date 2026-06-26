@@ -61,7 +61,7 @@
                         <tr>
                             <th>Nome</th>
                             <th>Email</th>
-                            <th>Admin</th>
+                            <th>Tipo</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
@@ -73,15 +73,21 @@
                         <tr>
                             <td>{{ $usuario->nome }}</td>
                             <td>{{ $usuario->email }}</td>
-                            <td>{{ $usuario->admin }}</td>
+                            <td>
+                                    @if($usuario->admin)
+                                        <span class="badge bg-danger">Administrador</span>
+                                    @else
+                                        <span class="badge bg-primary">Cliente</span>
+                                    @endif
+                            </td>
 
                             <td>
-                                <form action="{{ route('dashboard.usuario.update', ['id' => $usuario->usuario_id]) }}" method="GET">
+                                <form action="{{ route('dashboard.usuario.update', ['usuario_id' => $usuario->usuario_id]) }}" method="GET">
                                     <button class="btn btn-warning btn-sm" type="submit" data-bs-toggle="modal" data-bs-target="#editarUsuario">
                                         Editar
                                     </button>
                                 </form>
-                                <form action="{{ route('dashboard.usuario.delete', ['id' => $usuario->usuario_id]) }}" method="GET">
+                                <form action="{{ route('dashboard.usuario.delete', ['usuario_id' => $usuario->usuario_id]) }}" method="GET">
                                 <button class="btn btn-danger btn-sm" type="submit">
                                     Excluir
                                 </button>

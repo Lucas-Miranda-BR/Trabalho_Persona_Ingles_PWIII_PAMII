@@ -70,7 +70,7 @@
 
                         <input
                             type="hidden"
-                            name="id"
+                            name="usuario_id"
                             value="{{ $usuario->usuario_id }}">
 
                         <div class="row">

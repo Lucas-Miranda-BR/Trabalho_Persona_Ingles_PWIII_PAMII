@@ -31,42 +31,54 @@
 
         </div>
 
-        <form method="get" action="../">
+            <form method="POST" action="{{ route('usuario.autenticar') }}">
 
-            <div class="mb-3">
-                <label class="form-label">
-                    E-mail
-                </label>
+                @csrf
 
-                <input
-                    type="email"
-                    class="form-control input-auth"
-                    placeholder="Digite seu e-mail"
-                    for="email"
-                    id="email"
-                    value="{{ old('email') }}"
-                    >
-            </div>
+                <div class="mb-3">
 
-            <div class="mb-4">
-                <label class="form-label">
-                    Senha
-                </label>
+                    <label class="form-label" for="email">
+                        E-mail
+                    </label>
 
-                <input
-                    type="password"
-                    class="form-control input-auth"
-                    placeholder="Digite sua senha"
-                    for="senha"
-                    id="senha"
-                    value="{{ old('senha') }}">
-            </div>
+                    <input
+                        type="email"
+                        class="form-control input-auth"
+                        name="email"
+                        id="email"
+                        placeholder="Digite seu e-mail"
+                        value="{{ old('email') }}"
+                        required>
 
-            <button class="btn btn-auth w-100">
-                Entrar
-            </button>
+                </div>
 
-        </form>
+                <div class="mb-4">
+
+                    <label class="form-label" for="senha">
+                        Senha
+                    </label>
+
+                    <input
+                        type="password"
+                        class="form-control input-auth"
+                        name="senha"
+                        id="senha"
+                        placeholder="Digite sua senha"
+                        required>
+
+                </div>
+
+                @if(session('erro'))
+                    <div class="alert alert-danger">
+                        {{ session('erro') }}
+                    </div>
+                @endif
+
+                <button type="submit" class="btn btn-auth w-100">
+                    Entrar
+                </button>
+
+            </form>
 
         <div class="text-center mt-4">
             Não possui conta?

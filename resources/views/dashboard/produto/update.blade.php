@@ -70,7 +70,7 @@
 
                         <input
                             type="hidden"
-                            name="id"
+                            name="produto_id"
                             value="{{ $produto->produto_id }}">
 
                         <div class="mb-3">

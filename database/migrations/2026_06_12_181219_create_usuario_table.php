@@ -17,6 +17,7 @@ return new class extends Migration
             $table->timestamp('atualizado')->useCurrent()->useCurrentOnUpdate();
             $table->string('nome');
             $table->string('sobrenome');
+            $table->string('email');
             $table->string('senha');
             $table->boolean('admin')->default(false);
         });

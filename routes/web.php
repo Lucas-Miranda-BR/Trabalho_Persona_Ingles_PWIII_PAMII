@@ -23,6 +23,7 @@ Route::prefix('/usuario')->group(function(){
     Route::post('/create', [App\Http\Controllers\UsuarioController::class, 'createUsuario'])->name('usuario.create');
     Route::get('/login', [App\Http\Controllers\UsuarioController::class, 'loginUsuario'])->name('usuario.login');
     Route::get('/logout', [App\Http\Controllers\UsuarioController::class, 'logoutUsuario'])->name('usuario.logout');
+    Route::post('/login', [App\Http\Controllers\UsuarioController::class, 'autenticar'])->name('usuario.autenticar');
 });
 Route::prefix('/produto')->group(function(){
     Route::get('/compra/{produto_id}', [App\Http\Controllers\ProdutoController::class, 'readIdProduto'])->name('produto.compra');

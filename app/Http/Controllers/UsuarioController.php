@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use App\Models\Usuario;
 
 class UsuarioController extends Controller{
@@ -57,9 +59,37 @@ class UsuarioController extends Controller{
     function loginUsuario(){
         return view('usuario.login');
     }
+
+        public function autenticar(Request $request)
+    {
+        $usuario = Usuario::where('email', $request->email)->first();
+
+        if (!$usuario) {
+            return back()->with('erro', 'E-mail ou senha inválidos.');
+        }
+
+        if (!Hash::check($request->senha, $usuario->senha)) {
+            return back()->with('erro', 'E-mail ou senha inválidos.');
+        }
+
+        session([
+            'usuario_id' => $usuario->usuario_id,
+            'usuario_nome' => $usuario->nome,
+            'admin' => $usuario->admin,
+        ]);
+
+        return redirect()->route('principal');
+    }
     
-    public function logout(){        
-        return view('usuario.login');
+    // public function logout(){        
+    //     return view('usuario.login');
+    // }
+
+        public function logout()
+    {
+        session()->flush();
+
+        return redirect()->route('principal');
     }
     
     // ADMIN
@@ -71,12 +101,10 @@ class UsuarioController extends Controller{
     }
 
     function saveUsuario(Request $dados) {
-    
-          $usuario = \App\Models\Usuario::findOrFail($dados->usuario_id);
-          $usuario->update($dados->all());
+        $usuario = \App\Models\Usuario::findOrFail($dados->usuario_id);
+        $usuario->update($dados->all());
         
-            return view('dashboard.usuario.update', $usuario->usuario_id)->with('success'=>'Atualizado!');
-                }
+        return view('dashboard.usuario.update', ['usuario' => $usuario])->with('success', 'Atualizado!');
     }
 
     function readUsuario(){
@@ -85,11 +113,13 @@ class UsuarioController extends Controller{
         return view('dashboard.usuario.read', ['usuarios'=>$usuario::all()]);
     }
 
-    function deleteUsuario(string $usuario_id) {
-            $usuario = Usuario::findOrFail($usuario_id);
-            $usuario::destroy($usuario_id);
-    
-            return view('dashboard.usuario.index', ['success'=>'Removido!', 'usuarios'=>$usuario::all()]);
+    function deleteUsuario(string $usuario_id)
+    {
+        Usuario::destroy($usuario_id);
+
+        return redirect()
+            ->route('dashboard.usuario.read')
+            ->with('success', 'Usuário removido com sucesso!');
     }
 }
 
