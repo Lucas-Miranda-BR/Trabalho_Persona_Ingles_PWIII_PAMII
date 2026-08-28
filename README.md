@@ -1,4 +1,4 @@
 # Projeto Persona
 ## Ingles, PW e PAM
 ---
-Por: Alberto & Lucas
+Por: Alberto - Frontend & Lucas - Backend
